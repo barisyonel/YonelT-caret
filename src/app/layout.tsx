@@ -1,16 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,15 +9,42 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html lang="tr">
+      <body className="min-h-screen flex flex-col bg-white w-full">
+        <header className="bg-white shadow-sm border-b border-gray-100 py-3 px-2 md:py-5 md:px-12 w-full sticky top-0 z-20 relative">
+          <div className="flex flex-col md:flex-row items-center w-full md:justify-between gap-2 md:gap-0">
+            <div className="font-bold text-2xl md:text-3xl text-blue-900 tracking-wide text-center md:text-left flex-1 md:flex-none md:w-auto">
+              YÖNEL TİCARET
+            </div>
+            <nav className="flex flex-col md:flex-row gap-2 md:gap-6 text-gray-900 font-medium text-base items-center justify-center md:flex-1">
+              <Link href="/" className="font-bold">Ana Sayfa</Link>
+              <Link href="/kategoriler" className="font-bold">Ürünler</Link>
+              <Link href="/hakkimizda" className="font-bold">Hakkımızda</Link>
+              <Link href="/iletisim" className="font-bold">İletişim</Link>
+            </nav>
+            <div className="flex-1 md:flex-none flex justify-center md:justify-end w-full md:w-auto mt-2 md:mt-0">
+              <a
+                href="https://wa.me/905414873365"
+                target="_blank"
+                rel="noopener"
+                className="bg-green-500 hover:bg-green-600 text-white font-semibold px-5 py-2 rounded transition text-sm shadow-sm whitespace-nowrap w-full md:w-auto text-center"
+              >
+                Sipariş & Destek
+              </a>
+            </div>
+          </div>
+        </header>
+        <main className="flex-1 w-full px-2 md:px-0 py-2">{children}</main>
+        <footer className="bg-gray-50 border-t border-gray-200 py-6 px-4 md:px-12 text-center text-gray-500 text-xs mt-8 w-full">
+          <div className="mb-1 font-semibold text-base text-blue-900">Yönel Ticaret</div>
+          <div className="mb-1">Adres: Yonel Ticaret, Yeniyurt, Ayyıldız Cd. No:22, 60030 Tokat Merkez/Tokat</div>
+          <div className="mb-1">Tel: 0 (554) 259 72 73 | Whatsapp: 0 (554) 259 72 73 | E-mail: info@yonelticaret.com</div>
+          <div className="mt-2 text-xs">&copy; {new Date().getFullYear()} Yönel Ticaret. Tüm hakları saklıdır.</div>
+        </footer>
       </body>
     </html>
   );
