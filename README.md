@@ -14,8 +14,8 @@ Bu proje, Yönel Ticaret için özel olarak geliştirilmiş, Iveco, Eurobus, Duc
 ## Kurulum
 
 ```bash
-git clone https://github.com/barisyonel/YonelT-caret.git
-cd YonelT-caret
+git clone https://github.com/barisyonel/YonelTicaret.git
+cd YonelTicaret
 npm install
 npm run dev
 ```
